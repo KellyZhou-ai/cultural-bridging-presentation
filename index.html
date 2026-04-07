@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cultural Bridging for Global English Customer Experience</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+<style>
+  /* ========== IMPORT FONTS ========== */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  /* ========== ROOT VARIABLES ========== */
+  :root {
+    --bg-dark: #0f1023;
+    --bg-card: rgba(30, 39, 73, 0.65);
+    --bg-card-solid: #1e2749;
+    --accent-blue: #4ec5d1;
+    --accent-orange: #ff8c42;
+    --accent-green: #5cdb95;
+    --accent-purple: #a87cf7;
+    --accent-pink: #ff6b9d;
+    --accent-yellow: #ffd93d;
+    --text-white: #f0f0f0;
+    --text-gray: #a0a8c8;
+    --text-dim: #6b7394;
+    --glass-border: rgba(255,255,255,0.08);
+    --glass-bg: rgba(255,255,255,0.03);
+  }
+
+  /* ========== GLOBAL ========== */
+  .reveal-viewport { background: var(--bg-dark); }
+
+  .reveal {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 22px;
+    color: var(--text-white);
+  }
+
+  .reveal .slides { text-align: left; }
+
+  .reveal .slides section {
+    padding: 40px 60px;
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  .reveal h1, .reveal h2, .reveal h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--text-white);
+    margin-bottom: 0.3em;
+  }
+
+  .reveal h1 { font-size: 2.4em; font-weight: 800; }
+  .reveal h2 { font-size: 1.6em; }
+  .reveal h3 { font-size: 1.15em; }
+
+  /* ========== ANIMATED BACKGROUND ========== */
+  .bg-glow {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: -1;
+    animation: float 20s ease-in-out infinite alternate;
+  }
+  .bg-glow-1 { width: 600px; height: 600px; background: var(--accent-blue); top: -15%; right: -8%; }
+  .bg-glow-2 { width: 500px; height: 500px; background: var(--accent-orange); bottom: -10%; left: -5%; animation-delay: -7s; }
+  .bg-glow-3 { width: 400px; height: 400px; background: var(--accent-purple); top: 40%; left: 50%; animation-delay: -14s; }
+
+  @keyframes float {
+    0%   { transform: translate(0, 0) scale(1); }
+    50%  { transform: translate(30px, -40px) scale(1.1); }
+    100% { transform: translate(-20px, 20px) scale(0.95); }
+  }
+
+  /* ========== ACCENT LINE ========== */
+  .accent-line {
+    height: 3px;
+    border-radius: 2px;
+    width: 80px;
+    margin: 12px 0 20px;
+  }
+  .accent-line.blue   { background: linear-gradient(90deg, var(--accent-blue), transparent); }
+  .accent-line.orange { background: linear-gradient(90deg, var(--accent-orange), transparent); }
+  .accent-line.green  { background: linear-gradient(90deg, var(--accent-green), transparent); }
+  .accent-line.pink   { background: linear-gradient(90deg, var(--accent-pink), transparent); }
+  .accent-line.yellow { background: linear-gradient(90deg, var(--accent-yellow), transparent); }
+  .accent-line.center { margin-left: auto; margin-right: auto; }
+  .accent-line.wide   { width: 160px; }
+
+  /* ========== GLASS CARD ========== */
+  .card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 24px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 14px 14px 0 0;
+  }
+  .card.blue::before    { background: linear-gradient(90deg, var(--accent-blue), transparent); }
+  .card.orange::before  { background: linear-gradient(90deg, var(--accent-orange), transparent); }
+  .card.green::before   { background: linear-gradient(90deg, var(--accent-green), transparent); }
+  .card.purple::before  { background: linear-gradient(90deg, var(--accent-purple), transparent); }
+  .card.pink::before    { background: linear-gradient(90deg, var(--accent-pink), transparent); }
+  .card.yellow::before  { background: linear-gradient(90deg, var(--accent-yellow), transparent); }
+  .card.left-accent::before { display: none; }
+  .card.left-accent::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 3px;
+    border-radius: 14px 0 0 14px;
+  }
+  .card.left-accent.blue::after    { background: var(--accent-blue); }
+  .card.left-accent.orange::after  { background: var(--accent-orange); }
+  .card.left-accent.green::after   { background: var(--accent-green); }
+  .card.left-accent.purple::after  { background: var(--accent-purple); }
+  .card.left-accent.pink::after    { background: var(--accent-pink); }
+  .card.left-accent.yellow::after  { background: var(--accent-yellow); }
+
+  /* ========== GRID LAYOUTS ========== */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  /* ========== TAGS / BADGES ========== */
+  .tag {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.65em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .tag.blue   { background: rgba(78,197,209,0.15); color: var(--accent-blue); }
+  .tag.orange { background: rgba(255,140,66,0.15); color: var(--accent-orange); }
+  .tag.green  { background: rgba(92,219,149,0.15); color: var(--accent-green); }
+  .tag.purple { background: rgba(168,124,247,0.15); color: var(--accent-purple); }
+  .tag.pink   { background: rgba(255,107,157,0.15); color: var(--accent-pink); }
+  .tag.yellow { background: rgba(255,217,61,0.15); color: var(--accent-yellow); }
+
+  /* ========== NUMBERED CIRCLE ========== */
+  .num-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.8em;
+    flex-shrink: 0;
+    color: #fff;
+  }
+  .num-circle.blue   { background: linear-gradient(135deg, var(--accent-blue), #3aa0ab); }
+  .num-circle.orange { background: linear-gradient(135deg, var(--accent-orange), #e07030); }
+  .num-circle.green  { background: linear-gradient(135deg, var(--accent-green), #3cb371); }
+
+  /* ========== BULLETS ========== */
+  .bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+  }
+  .bullet-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 6px;
+    font-size: 0.82em;
+    line-height: 1.5;
+    color: var(--text-gray);
+  }
+  .bullet-list li::before {
+    content: '\25B8';
+    position: absolute;
+    left: 0;
+    color: var(--accent-blue);
+    font-size: 0.9em;
+  }
+  .bullet-list.orange li::before { color: var(--accent-orange); }
+  .bullet-list.green  li::before { color: var(--accent-green); }
+  .bullet-list.yellow li::before { color: var(--accent-yellow); }
+  .bullet-list.pink   li::before { color: var(--accent-pink); }
+
+  /* ========== TABLES ========== */
+  .styled-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.72em;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .styled-table thead th {
+    background: rgba(45, 58, 92, 0.9);
+    padding: 12px 16px;
+    font-weight: 600;
+    color: var(--text-white);
+    text-align: left;
+    border-bottom: 2px solid rgba(78,197,209,0.3);
+  }
+  .styled-table tbody td {
+    padding: 10px 16px;
+    color: var(--text-gray);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    line-height: 1.4;
+  }
+  .styled-table tbody tr:nth-child(odd) td { background: rgba(31,43,77,0.5); }
+  .styled-table tbody tr:nth-child(even) td { background: rgba(37,51,85,0.5); }
+  .styled-table tbody tr:hover td { background: rgba(78,197,209,0.08); }
+  .styled-table tbody td:first-child { color: var(--accent-blue); font-weight: 600; }
+
+  .styled-table.pink-header thead th { border-bottom-color: rgba(255,107,157,0.3); }
+
+  /* ========== SECTION DIVIDERS ========== */
+  .divider-slide {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  .divider-slide::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+  }
+  .divider-slide.blue::before   { background: var(--accent-blue); }
+  .divider-slide.orange::before { background: var(--accent-orange); }
+  .divider-slide.green::before  { background: var(--accent-green); }
+
+  .part-label {
+    font-size: 0.9em;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  /* ========== TITLE SLIDE ========== */
+  .title-slide {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+  }
+  .title-slide h1 {
+    font-size: 2.6em;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #fff 0%, #c8d8ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .title-slide .subtitle {
+    font-size: 1.05em;
+    color: var(--accent-blue);
+    font-weight: 500;
+    margin-top: 16px;
+  }
+
+  /* ========== Q&A SLIDES ========== */
+  .q-title {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--accent-green);
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+  .q-author {
+    font-size: 0.65em;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+
+  /* ========== THANK YOU ========== */
+  .thankyou-slide {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .thankyou-slide h1 {
+    font-size: 3.2em;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 6s ease-in-out infinite alternate;
+    background-size: 200% 200%;
+  }
+  @keyframes shimmer {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+
+  /* ========== TIP CARD HEADER ========== */
+  .tip-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .tip-header h3 {
+    margin: 0;
+    font-size: 0.92em;
+  }
+
+  /* ========== CALLOUT BOX ========== */
+  .callout {
+    background: rgba(45, 58, 92, 0.7);
+    border-left: 3px solid;
+    border-radius: 0 10px 10px 0;
+    padding: 14px 20px;
+    margin-top: 12px;
+    font-size: 0.82em;
+    color: var(--text-gray);
+    line-height: 1.5;
+  }
+  .callout.blue   { border-color: var(--accent-blue); }
+  .callout.yellow { border-color: var(--accent-yellow); }
+  .callout.green  { border-color: var(--accent-green); }
+
+  /* ========== SCENARIO CARD ========== */
+  .scenario-card {
+    text-align: center;
+    padding: 24px 20px;
+  }
+  .scenario-card .scenario-icon {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  .scenario-card h3 {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .scenario-card p {
+    font-size: 0.78em;
+    color: var(--text-gray);
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  /* ========== PROGRESS BAR ========== */
+  .reveal .progress { height: 4px; color: var(--accent-blue); }
+  .reveal .controls { color: var(--accent-blue); }
+
+  /* ========== SLIDE NUMBER ========== */
+  .reveal .slide-number {
+    background: transparent;
+    color: var(--text-dim);
+    font-size: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    right: 24px;
+    bottom: 16px;
+  }
+
+  /* ========== FRAGMENT ENHANCEMENTS ========== */
+  .reveal .fragment { transition: all 0.4s ease; }
+  .reveal .fragment.fade-up { transform: translateY(20px); }
+  .reveal .fragment.fade-up.visible { transform: translateY(0); }
+
+  /* ========== RESPONSIVE COMPACT ========== */
+  .compact { font-size: 0.88em; }
+  .tight-grid { gap: 12px !important; }
+
+  /* ========== OVERALL SLIDE CARDS ========== */
+  .overall-card {
+    padding: 28px 32px;
+    border-radius: 14px;
+    position: relative;
+  }
+  .overall-card h3 { margin-bottom: 10px; }
+  .overall-card p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ========== PITFALL TABLE CUSTOM ========== */
+  .pitfall-table tbody td:first-child { color: var(--accent-pink); }
+  .pitfall-table tbody td:nth-child(2) { color: var(--accent-green); }
+  .pitfall-table tbody td:nth-child(3) { color: var(--accent-blue); }
+
+  /* ========== COMPARISON HIGHLIGHT ========== */
+  .highlight-box {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.75em;
+  }
+  .highlight-box.blue   { background: rgba(78,197,209,0.15); color: var(--accent-blue); }
+  .highlight-box.orange { background: rgba(255,140,66,0.15); color: var(--accent-orange); }
+  .highlight-box.purple { background: rgba(168,124,247,0.15); color: var(--accent-purple); }
+  .highlight-box.pink   { background: rgba(255,107,157,0.15); color: var(--accent-pink); }
+</style>
+</head>
+<body>
+
+<!-- Animated background glows -->
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+<div class="bg-glow bg-glow-3"></div>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- ==================== SLIDE 1: TITLE ==================== -->
+<section class="title-slide">
+  <div class="accent-line wide blue"></div>
+  <h1>Cultural Bridging for<br>Global English Customer Experience</h1>
+  <div class="subtitle">Growth Strategies for JP/KR Engineers Supporting GE Customers</div>
+  <div class="accent-line wide blue" style="margin-top:36px;"></div>
+</section>
+
+<!-- ==================== SLIDE 2: AGENDA ==================== -->
+<section>
+  <h2>Agenda</h2>
+  <div class="accent-line blue"></div>
+  <div class="grid-3" style="margin-top:32px;">
+    <div class="card blue fragment fade-up">
+      <div style="font-size:2em; font-weight:800; color:var(--accent-blue); opacity:0.7;">01</div>
+      <h3>Cultural Overview by Region</h3>
+      <p style="color:var(--text-gray); font-size:0.82em; margin-top:8px;">AU/NZ and SEA &mdash; how they think, work, and communicate</p>
+    </div>
+    <div class="card orange fragment fade-up">
+      <div style="font-size:2em; font-weight:800; color:var(--accent-orange); opacity:0.7;">02</div>
+      <h3>Key Tips for JP/KR Engineers</h3>
+      <p style="color:var(--text-gray); font-size:0.82em; margin-top:8px;">Practical do's and don'ts for handling ANZ &amp; SEA cases</p>
+    </div>
+    <div class="card green fragment fade-up">
+      <div style="font-size:2em; font-weight:800; color:var(--accent-green); opacity:0.7;">03</div>
+      <h3>Q&amp;A &mdash; Real Questions</h3>
+      <p style="color:var(--text-gray); font-size:0.82em; margin-top:8px;">Real questions from JP/KR engineers, answered with frameworks</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 3: PART 1 DIVIDER ==================== -->
+<section class="divider-slide blue">
+  <div class="part-label" style="color:var(--accent-blue);">Part 1</div>
+  <h1 style="font-size:2.2em;">Cultural Overview by Region</h1>
+  <div class="accent-line wide blue"></div>
+  <p style="color:var(--text-gray); font-size:0.95em;">Understanding AU/NZ and SEA communication styles</p>
+</section>
+
+<!-- ==================== SLIDE 4: AU/NZ CULTURE ==================== -->
+<section>
+  <h2>Australia / New Zealand <span style="color:var(--text-dim); font-weight:400; font-size:0.6em;">(Global English)</span></h2>
+  <div class="accent-line blue"></div>
+  <div class="grid-2 tight-grid" style="margin-top:10px;">
+    <div class="card left-accent blue fragment fade-up" style="padding:16px 20px;">
+      <h3 style="color:var(--accent-blue); font-size:0.85em;">Straightforward &amp; Candid</h3>
+      <p style="color:var(--text-gray); font-size:0.75em; margin:4px 0 0;">They'll tell you directly what's wrong &mdash; no need to read between the lines</p>
+    </div>
+    <div class="card left-accent blue fragment fade-up" style="padding:16px 20px;">
+      <h3 style="color:var(--accent-blue); font-size:0.85em;">Strong Work-Life Balance</h3>
+      <p style="color:var(--text-gray); font-size:0.75em; margin:4px 0 0;">Don't expect replies outside business hours, and they won't expect yours either</p>
+    </div>
+    <div class="card left-accent blue fragment fade-up" style="padding:16px 20px;">
+      <h3 style="color:var(--accent-blue); font-size:0.85em;">Casual Tone Preferred</h3>
+      <p style="color:var(--text-gray); font-size:0.75em; margin:4px 0 0;">Overly formal language feels stiff; friendly and approachable works best</p>
+    </div>
+    <div class="card left-accent blue fragment fade-up" style="padding:16px 20px;">
+      <h3 style="color:var(--accent-blue); font-size:0.85em;">Results Over Process</h3>
+      <p style="color:var(--text-gray); font-size:0.75em; margin:4px 0 0;">They care more about "does it work?" than perfect procedures</p>
+    </div>
+    <div class="card left-accent blue fragment fade-up" style="padding:16px 20px;">
+      <h3 style="color:var(--accent-blue); font-size:0.85em;">Egalitarian Culture</h3>
+      <p style="color:var(--text-gray); font-size:0.75em; margin:4px 0 0;">Titles and hierarchy matter less; first-name basis is the norm</p>
+    </div>
+    <div class="card left-accent blue fragment fade-up" style="padding:16px 20px;">
+      <h3 style="color:var(--accent-blue); font-size:0.85em;">Self-Sufficient</h3>
+      <p style="color:var(--text-gray); font-size:0.75em; margin:4px 0 0;">Often arrive with preliminary investigation already done</p>
+    </div>
+    <div class="card left-accent blue fragment fade-up" style="padding:16px 20px; grid-column: span 2;">
+      <h3 style="color:var(--accent-blue); font-size:0.85em;">Humor Helps</h3>
+      <p style="color:var(--text-gray); font-size:0.75em; margin:4px 0 0;">Light humor builds rapport (but keep it appropriate)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 5: SEA CULTURE ==================== -->
+<section>
+  <h2>Southeast Asia (SEA)</h2>
+  <p style="color:var(--text-dim); font-size:0.65em; margin:-4px 0 4px;">Singapore, Malaysia, Thailand, Indonesia, Philippines, Vietnam, and others</p>
+  <div class="accent-line orange"></div>
+  <div class="grid-2 tight-grid" style="margin-top:8px;">
+    <div class="card left-accent orange fragment fade-up" style="padding:14px 18px;">
+      <h3 style="color:var(--accent-orange); font-size:0.82em;">Relationship-First</h3>
+      <p style="color:var(--text-gray); font-size:0.72em; margin:3px 0 0;">Building personal rapport is essential before diving into technical work &mdash; small talk matters</p>
+    </div>
+    <div class="card left-accent purple fragment fade-up" style="padding:14px 18px;">
+      <h3 style="color:var(--accent-purple); font-size:0.82em;">Indirect Communication</h3>
+      <p style="color:var(--text-gray); font-size:0.72em; margin:3px 0 0;">Many SEA cultures avoid confrontation; "yes" may mean "I heard you" not "I agree"</p>
+    </div>
+    <div class="card left-accent blue fragment fade-up" style="padding:14px 18px;">
+      <h3 style="color:var(--accent-blue); font-size:0.82em;">Respect for Hierarchy</h3>
+      <p style="color:var(--text-gray); font-size:0.72em; margin:3px 0 0;">Titles and seniority are important; be polite and defer to senior stakeholders</p>
+    </div>
+    <div class="card left-accent green fragment fade-up" style="padding:14px 18px;">
+      <h3 style="color:var(--accent-green); font-size:0.82em;">Patience &amp; Flexibility</h3>
+      <p style="color:var(--text-gray); font-size:0.72em; margin:3px 0 0;">Decision-making can be slower due to internal consensus processes; avoid rushing them</p>
+    </div>
+    <div class="card left-accent yellow fragment fade-up" style="padding:14px 18px;">
+      <h3 style="color:var(--accent-yellow); font-size:0.82em;">Language Nuances</h3>
+      <p style="color:var(--text-gray); font-size:0.72em; margin:3px 0 0;">English proficiency varies widely (Singapore/Philippines = strong, others may need simpler language)</p>
+    </div>
+    <div class="card left-accent pink fragment fade-up" style="padding:14px 18px;">
+      <h3 style="color:var(--accent-pink); font-size:0.82em;">Vendor Loyalty</h3>
+      <p style="color:var(--text-gray); font-size:0.72em; margin:3px 0 0;">Tend to be loyal once trust is established &mdash; long-term relationship matters more than one-time speed</p>
+    </div>
+    <div class="card left-accent orange fragment fade-up" style="padding:14px 18px;">
+      <h3 style="color:var(--accent-orange); font-size:0.82em;">Non-Confrontational</h3>
+      <p style="color:var(--text-gray); font-size:0.72em; margin:3px 0 0;">Even when unhappy, they may not express it directly &mdash; watch for subtle signals</p>
+    </div>
+    <div class="card left-accent purple fragment fade-up" style="padding:14px 18px;">
+      <h3 style="color:var(--accent-purple); font-size:0.82em;">Cultural Sensitivity</h3>
+      <p style="color:var(--text-gray); font-size:0.72em; margin:3px 0 0;">Be mindful of local holidays (Ramadan, Lunar New Year, Deepavali) and prayer times</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 6: COMPARISON TABLE ==================== -->
+<section>
+  <h2>Practical Case-Handling Comparison</h2>
+  <div class="accent-line blue"></div>
+  <table class="styled-table" style="margin-top:16px;">
+    <thead>
+      <tr><th>Dimension</th><th>SEA</th><th>AU/NZ English</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Emails</td><td>Polite, warm, respectful</td><td>Friendly, grammatically accurate</td></tr>
+      <tr><td>Phone calls</td><td>Schedule the calls. Ensure understanding during the calls. Best to call during their working hours.</td><td>Flexible &mdash; just call during their hours</td></tr>
+      <tr><td>Response expectation</td><td>Prefer to have things under control; want to know when you will provide the solution</td><td>Within reasonable SLA</td></tr>
+      <tr><td>Escalation handling</td><td>Handle gently, preserve relationship</td><td>Just solve the problem</td></tr>
+      <tr><td>RCA reports</td><td>Appreciated, moderate detail</td><td>Brief and to the point</td></tr>
+      <tr><td>Communication pace</td><td>Moderate, relationship-paced</td><td>Flexible, moderate</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ==================== SLIDE 7: PART 2 DIVIDER ==================== -->
+<section class="divider-slide orange">
+  <div class="part-label" style="color:var(--accent-orange);">Part 2</div>
+  <h1 style="font-size:2.1em;">Key Tips for Handling<br>AU/NZ &amp; SEA Cases</h1>
+  <div class="accent-line wide orange"></div>
+  <p style="color:var(--text-gray); font-size:0.95em;">8 tips for AU/NZ + 5 tips for SEA</p>
+</section>
+
+<!-- ==================== SLIDE 8: AU/NZ TIPS 1-4 ==================== -->
+<section>
+  <h2>Tips for AU/NZ Customers</h2>
+  <div class="accent-line blue"></div>
+  <div class="grid-2 tight-grid" style="margin-top:8px;">
+    <div class="card blue fragment fade-up" style="padding:18px 22px;">
+      <div class="tip-header">
+        <div class="num-circle blue">1</div>
+        <h3 style="color:var(--accent-blue);">Tone Down the Formality</h3>
+      </div>
+      <ul class="bullet-list">
+        <li><strong>Don't:</strong> Write long, overly polite emails with excessive honorifics</li>
+        <li><strong>Do:</strong> Use a friendly, conversational tone &mdash; "Hi John, here's a quick update&hellip;"</li>
+        <li>AU/NZ customers feel uncomfortable if the tone is too formal</li>
+      </ul>
+    </div>
+    <div class="card blue fragment fade-up" style="padding:18px 22px;">
+      <div class="tip-header">
+        <div class="num-circle blue">2</div>
+        <h3 style="color:var(--accent-blue);">Be Direct &mdash; Don't Hint, Just Say It</h3>
+      </div>
+      <ul class="bullet-list">
+        <li>JP/KR engineers are trained to communicate indirectly to be polite</li>
+        <li>AU/NZ customers prefer clarity: "This is a product bug, ETA is 2 weeks"</li>
+        <li>If you don't have an answer: "I don't have an answer yet, I'll update you by Friday"</li>
+      </ul>
+    </div>
+    <div class="card blue fragment fade-up" style="padding:18px 22px;">
+      <div class="tip-header">
+        <div class="num-circle blue">3</div>
+        <h3 style="color:var(--accent-blue);">Keep Emails Short</h3>
+      </div>
+      <ul class="bullet-list">
+        <li>Lead with the conclusion/action item first, details second</li>
+        <li>Use bullet points, not paragraphs</li>
+        <li>Rule of thumb: If your email scrolls, it's too long</li>
+      </ul>
+    </div>
+    <div class="card blue fragment fade-up" style="padding:18px 22px;">
+      <div class="tip-header">
+        <div class="num-circle blue">4</div>
+        <h3 style="color:var(--accent-blue);">Don't Over-Apologize</h3>
+      </div>
+      <ul class="bullet-list">
+        <li>In JP/KR culture, frequent apologies show respect</li>
+        <li>In AU/NZ, excessive apologies feel insincere or weak</li>
+        <li>One clear apology is enough &mdash; then move to the solution</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 9: AU/NZ TIPS 5-8 ==================== -->
+<section>
+  <h2>Tips for AU/NZ Customers</h2>
+  <div class="accent-line blue"></div>
+  <div class="grid-2 tight-grid" style="margin-top:8px;">
+    <div class="card blue fragment fade-up" style="padding:18px 22px;">
+      <div class="tip-header">
+        <div class="num-circle blue">5</div>
+        <h3 style="color:var(--accent-blue);">Respect Work-Life Boundaries</h3>
+      </div>
+      <ul class="bullet-list">
+        <li>Don't send "urgent" emails at 11 PM their time expecting a reply</li>
+        <li>Don't call outside of their working hours</li>
+        <li>Schedule meetings within their business hours (AEST/NZST)</li>
+      </ul>
+    </div>
+    <div class="card blue fragment fade-up" style="padding:18px 22px;">
+      <div class="tip-header">
+        <div class="num-circle blue">6</div>
+        <h3 style="color:var(--accent-blue);">Don't Be Afraid of Casual Interaction</h3>
+      </div>
+      <ul class="bullet-list">
+        <li>AU/NZ may joke, use slang ("no worries", "cheers", "mate")</li>
+        <li>This is rapport-building, not unprofessional &mdash; reciprocate appropriately</li>
+        <li>A friendly "Thanks, cheers!" at the end of an email is totally fine</li>
+      </ul>
+    </div>
+    <div class="card blue fragment fade-up" style="padding:18px 22px;">
+      <div class="tip-header">
+        <div class="num-circle blue">7</div>
+        <h3 style="color:var(--accent-blue);">Focus on Outcomes, Not Process</h3>
+      </div>
+      <ul class="bullet-list">
+        <li>JP/KR engineers may want to explain every step of investigation</li>
+        <li>AU/NZ customers care about: "What's the fix? When will it be done?"</li>
+        <li>Share process details only when asked, or put them in an attachment</li>
+      </ul>
+    </div>
+    <div class="card blue fragment fade-up" style="padding:18px 22px;">
+      <div class="tip-header">
+        <div class="num-circle blue">8</div>
+        <h3 style="color:var(--accent-blue);">Treat Them as Equals</h3>
+      </div>
+      <ul class="bullet-list">
+        <li>Use their first name directly</li>
+        <li>Disagreeing respectfully is welcome: "I think the root cause might be X&hellip;"</li>
+        <li>They respect engineers who show confidence and ownership</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 10: SEA TIPS 1-3 ==================== -->
+<section>
+  <h2>Tips for SEA Customers</h2>
+  <div class="accent-line orange"></div>
+  <div class="grid-3 tight-grid" style="margin-top:8px;">
+    <div class="card orange fragment fade-up" style="padding:18px 22px;">
+      <div class="tip-header">
+        <div class="num-circle orange">1</div>
+        <h3 style="color:var(--accent-orange);">Invest in Relationship Building</h3>
+      </div>
+      <ul class="bullet-list orange">
+        <li>Spend a few minutes on small talk before jumping into technical details</li>
+        <li>Remember previous conversations: "How did that migration go last month?"</li>
+        <li>Don't treat each interaction as purely transactional</li>
+      </ul>
+    </div>
+    <div class="card orange fragment fade-up" style="padding:18px 22px;">
+      <div class="tip-header">
+        <div class="num-circle orange">2</div>
+        <h3 style="color:var(--accent-orange);">Read Between the Lines</h3>
+      </div>
+      <ul class="bullet-list orange">
+        <li>Silence or vague responses may indicate disagreement or confusion</li>
+        <li>"Yes" might mean "I understand" rather than "I agree"</li>
+        <li>If a customer goes quiet, proactively check in</li>
+        <li>Avoid putting them in a position to say "no" directly; offer alternatives</li>
+      </ul>
+    </div>
+    <div class="card orange fragment fade-up" style="padding:18px 22px;">
+      <div class="tip-header">
+        <div class="num-circle orange">3</div>
+        <h3 style="color:var(--accent-orange);">Adjust Language Complexity</h3>
+      </div>
+      <ul class="bullet-list orange">
+        <li>Use short sentences, avoid idioms (no "ballpark figure", "touch base", "circle back")</li>
+        <li>Use screenshots, diagrams, and step-by-step visuals to supplement</li>
+        <li>If there's a language gap on a call, ask short, clear questions and follow up with written summary</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 11: SEA TIPS 4-5 ==================== -->
+<section>
+  <h2>Tips for SEA Customers</h2>
+  <div class="accent-line orange"></div>
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card orange fragment fade-up" style="padding:22px 26px;">
+      <div class="tip-header">
+        <div class="num-circle orange">4</div>
+        <h3 style="color:var(--accent-orange);">Be Patient with Decision Cycles</h3>
+      </div>
+      <ul class="bullet-list orange">
+        <li>SEA organizations may need to consult multiple internal stakeholders before approving actions</li>
+        <li>Don't interpret slow responses as disinterest &mdash; they may be building internal consensus</li>
+        <li>Offer to provide written materials they can share internally</li>
+        <li>Set clear next-step timelines to keep momentum without pressuring</li>
+      </ul>
+    </div>
+    <div class="card orange fragment fade-up" style="padding:22px 26px;">
+      <div class="tip-header">
+        <div class="num-circle orange">5</div>
+        <h3 style="color:var(--accent-orange);">Respect Religious &amp; Cultural Calendars</h3>
+      </div>
+      <ul class="bullet-list orange">
+        <li>Malaysia/Indonesia: Ramadan, Hari Raya, Friday prayer times</li>
+        <li>Thailand: Buddhist holidays; Songkran (Thai New Year) in April</li>
+        <li>Philippines: Strong Christmas season (Sep&ndash;Jan may see reduced availability)</li>
+        <li>Singapore: Multi-cultural &mdash; Lunar New Year, Deepavali, Hari Raya</li>
+        <li>When scheduling, ask: "Is there a preferred time that works best for you?"</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 12: COMMON PITFALLS ==================== -->
+<section>
+  <h2>Common Pitfalls to Avoid</h2>
+  <div class="accent-line pink"></div>
+  <table class="styled-table pitfall-table pink-header" style="margin-top:12px; font-size:0.68em;">
+    <thead>
+      <tr>
+        <th style="color:var(--accent-pink);">&#10060; JP/KR Habit</th>
+        <th style="color:var(--accent-green);">&#9989; AU/NZ Expectation</th>
+        <th style="color:var(--accent-blue);">&#9989; SEA Expectation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>"We sincerely apologize for the inconvenience caused&hellip;" (x3)</td>
+        <td>"Sorry about that &mdash; here's what we're doing about it"</td>
+        <td>One polite apology is fine; they appreciate the effort</td>
+      </tr>
+      <tr>
+        <td>2-page detailed status email</td>
+        <td>5-line summary + "let me know if you want details"</td>
+        <td>Moderate detail with clear next steps</td>
+      </tr>
+      <tr>
+        <td>Waiting for perfect answer before replying</td>
+        <td>Quick acknowledgment + follow-up with details later</td>
+        <td>Acknowledgment appreciated; they're patient but want to know you're working on it</td>
+      </tr>
+      <tr>
+        <td>Avoiding saying "I don't know"</td>
+        <td>"Not sure yet, investigating &mdash; will update by [date]"</td>
+        <td>"I'm looking into this" &mdash; honesty is valued, but frame it gently</td>
+      </tr>
+      <tr>
+        <td>Asking manager before every response</td>
+        <td>Take ownership, make decisions, escalate only when needed</td>
+        <td>Ownership valued, but they understand if you need to consult internally</td>
+      </tr>
+      <tr>
+        <td>Being too direct or blunt</td>
+        <td>Directness preferred and appreciated</td>
+        <td>Soften your language; use suggestions rather than directives</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ==================== SLIDE 13: OVERALL ==================== -->
+<section>
+  <h2>Overall</h2>
+  <div class="accent-line yellow"></div>
+  <div class="grid-2" style="margin-top:20px;">
+    <div class="overall-card card left-accent blue fragment fade-up" style="padding:28px 32px;">
+      <h3 style="color:var(--accent-blue); font-size:1.1em;">For AU/NZ</h3>
+      <p style="color:var(--text-white); font-size:1em; line-height:1.7;">Be direct, be brief, be friendly,<br>and own the problem.</p>
+    </div>
+    <div class="overall-card card left-accent orange fragment fade-up" style="padding:28px 32px;">
+      <h3 style="color:var(--accent-orange); font-size:1.1em;">For SEA</h3>
+      <p style="color:var(--text-white); font-size:1em; line-height:1.7;">Be warm, be patient, build trust,<br>and read between the lines.</p>
+    </div>
+  </div>
+  <div class="card yellow fragment fade-up" style="margin-top:24px; padding:24px 32px;">
+    <h3 style="color:var(--accent-yellow); font-size:1em;">Universal Principle</h3>
+    <p style="color:var(--text-white); font-size:0.88em; line-height:1.7; margin-top:6px;">
+      Both regions value authenticity &mdash; just expressed differently.<br>
+      Regardless of region, clear expectation-setting and proactive progress updates<br>
+      are the keys to earning customer trust.
+    </p>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 14: PART 3 DIVIDER ==================== -->
+<section class="divider-slide green">
+  <div class="part-label" style="color:var(--accent-green);">Part 3</div>
+  <h1 style="font-size:2.2em;">Q&amp;A &mdash; Real Questions<br>from JP/KR Engineers</h1>
+  <div class="accent-line wide green"></div>
+</section>
+
+<!-- ==================== SLIDE 15: Q1 ==================== -->
+<section>
+  <div class="q-title">Q1: GE customers expect real-time collaboration, while local customers prefer async email. How should we adapt?</div>
+  <div class="q-author">&mdash; KR DSC (Soyoung)</div>
+  <div class="accent-line green"></div>
+
+  <table class="styled-table" style="margin-top:8px; font-size:0.66em;">
+    <thead>
+      <tr><th></th><th>GE / AU/NZ Customers</th><th>JP/KR Local Customers</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Preferred style</td><td>Real-time: Teams calls, screen sharing, live troubleshooting</td><td>Asynchronous: email threads, attached logs, written RCA</td></tr>
+      <tr><td>Why</td><td>They want to solve it NOW, together</td><td>They want to review internally first, then respond</td></tr>
+      <tr><td>Your approach</td><td>Offer a quick call: "Want to jump on a Teams call?"</td><td>Send detailed email, wait for response</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout green fragment fade-up" style="margin-top:14px;">
+    <strong style="color:var(--accent-green);">Key Tips:</strong>
+    <ul class="bullet-list green" style="margin-top:6px;">
+      <li>For GE customers: Don't wait for a perfect email &mdash; propose a 15-minute screen share</li>
+      <li>If uncomfortable with live calls in English, prepare key phrases and share your screen so visuals do the talking</li>
+      <li>It's OK to say during a call: "Let me check this and get back to you" &mdash; they won't see it as unprepared</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 16: Q2 ==================== -->
+<section>
+  <div class="q-title">Q2: We need clearer guidance on adjusting support by region. ANZ/SEA/JP/KR are all different.</div>
+  <div class="q-author">&mdash; JP (hihayak)</div>
+  <div class="accent-line green"></div>
+
+  <table class="styled-table" style="margin-top:8px; font-size:0.66em;">
+    <thead>
+      <tr><th>Region</th><th>Communication Style</th><th>Key Expectation</th><th>Biggest Mistake to Avoid</th></tr>
+    </thead>
+    <tbody>
+      <tr><td style="color:var(--accent-blue);">AU/NZ</td><td>Casual, direct, results-focused</td><td>Speed + honesty > perfection</td><td>Being too formal or over-apologizing</td></tr>
+      <tr><td style="color:var(--accent-orange);">SEA</td><td>Polite, relationship-oriented, indirect</td><td>Respect + patience</td><td>Being too blunt or rushing them</td></tr>
+      <tr><td style="color:var(--accent-purple);">Japan</td><td>Formal, detailed, consensus-driven</td><td>Thoroughness + predictability</td><td>Being vague or missing deadlines</td></tr>
+      <tr><td style="color:var(--accent-pink);">Korea</td><td>Fast, urgent, hierarchy-aware</td><td>Speed + responsiveness</td><td>Slow replies or lack of urgency</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout green fragment fade-up" style="margin-top:14px;">
+    <ul class="bullet-list green" style="margin-top:0;">
+      <li>The core skill is <strong>"code-switching"</strong> &mdash; adapting your tone and pace per region while keeping technical quality consistent.</li>
+      <li>When in doubt: <strong>match the customer's energy.</strong> If they're casual, be casual. If they're formal, be formal.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 17: Q3 ==================== -->
+<section>
+  <div class="q-title">Q3: Working hours in AU/NZ may differ (e.g., 8-4). With time zone differences, how do we handle the short overlap?</div>
+  <div class="q-author">&mdash; KR DSC (TA: Man Woo)</div>
+  <div class="accent-line green"></div>
+
+  <div class="grid-2" style="margin-top:12px;">
+    <div class="card left-accent blue fragment fade-up" style="padding:18px 22px;">
+      <h3 style="color:var(--accent-blue); font-size:0.9em;">Key Facts</h3>
+      <ul class="bullet-list" style="font-size:0.95em;">
+        <li>Many Australians work 8:00&ndash;16:00 or 8:30&ndash;16:30 (earlier than JP/KR 9-18)</li>
+        <li>AEST (Sydney) = KST &minus;1h, NZST (Auckland) = KST +3h</li>
+        <li>Korea 9:00 AM = Sydney 10:00 AM = Auckland 12:00 PM</li>
+        <li>Effective overlap with Korea: roughly 9:00&ndash;16:00 KST</li>
+        <li>NZ morning (8:00 NZST) = Korea 4:00 AM &mdash; morning meetings with NZ are hard</li>
+      </ul>
+    </div>
+    <div class="card left-accent green fragment fade-up" style="padding:18px 22px;">
+      <h3 style="color:var(--accent-green); font-size:0.9em;">Practical Tips</h3>
+      <ul class="bullet-list green" style="font-size:0.95em;">
+        <li>Schedule calls between <strong>9:00&ndash;15:00 KST</strong> &mdash; catches both AU and NZ</li>
+        <li>For NZ meetings: early afternoon KST (13:00&ndash;15:00) works best</li>
+        <li>Send emails before 18:00 KST so they see it in their morning</li>
+        <li>Use the time difference as an advantage: you investigate during your day, they review during theirs</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 18: Q4 ==================== -->
+<section>
+  <div class="q-title">Q4: What aspects of case support do global customers tend to be most satisfied with?</div>
+  <div class="q-author">&mdash; KR DSC (TA: Man Woo)</div>
+  <div class="accent-line green"></div>
+
+  <table class="styled-table" style="margin-top:8px; font-size:0.62em;">
+    <thead>
+      <tr><th>Region</th><th>#1 Satisfaction Driver</th><th>#2 Satisfaction Driver</th><th>Common Complaint</th></tr>
+    </thead>
+    <tbody>
+      <tr><td style="color:var(--accent-blue);">AU/NZ</td><td>Resolution speed + ownership</td><td>Honest, proactive communication</td><td style="color:var(--accent-pink);">"Engineer didn't take ownership" / "Too slow to respond"</td></tr>
+      <tr><td style="color:var(--accent-orange);">SEA</td><td>Respectful communication + patience</td><td>Relationship continuity (same engineer)</td><td style="color:var(--accent-pink);">"Felt rushed" / "Engineer was too blunt" / "Kept getting different people"</td></tr>
+      <tr><td style="color:var(--accent-purple);">Japan</td><td>Accuracy + thoroughness of RCA</td><td>Meeting promised timelines</td><td style="color:var(--accent-pink);">"Report was incomplete" / "Deadline was missed"</td></tr>
+      <tr><td style="color:var(--accent-pink);">Korea</td><td>Response speed + sense of urgency</td><td>Engineer's engagement level</td><td style="color:var(--accent-pink);">"Felt like low priority" / "No urgency shown"</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout yellow fragment fade-up" style="margin-top:14px;">
+    <strong style="color:var(--accent-yellow);">Universal Top Drivers Across All Regions:</strong>
+    <ul class="bullet-list yellow" style="margin-top:6px;">
+      <li>Proactive updates (don't make them chase you)</li>
+      <li>Setting clear expectations and meeting them</li>
+      <li>Showing genuine ownership: "I will make sure this gets resolved"</li>
+      <li>Technical competence &mdash; knowing the product deeply</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 19: Q5 ==================== -->
+<section>
+  <div class="q-title">Q5: Do customers in different countries prefer different support approaches?</div>
+  <div class="q-author">&mdash; KR DSC (TA: Man Woo)</div>
+  <div class="accent-line green"></div>
+
+  <table class="styled-table" style="margin-top:8px; font-size:0.6em;">
+    <thead>
+      <tr><th>Approach</th><th>AU/NZ</th><th>SEA</th><th>Japan</th><th>Korea</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Initial contact</td><td>Quick email or call offer</td><td>Warm email with personal touch</td><td>Formal email with plan</td><td>Fast response, show urgency</td></tr>
+      <tr><td>Troubleshooting</td><td>Live collaboration preferred</td><td>Guided approach; share visuals</td><td>Send instructions, wait for results</td><td>Mixed &mdash; calls for urgent, email for routine</td></tr>
+      <tr><td>Status updates</td><td>Only when meaningful progress</td><td>Regular, reassuring updates</td><td>Regular, scheduled updates</td><td>Frequent, even if no progress</td></tr>
+      <tr><td>Delivering bad news</td><td>Just say it straight</td><td>Soften with context and alternatives</td><td>Carefully framed with context</td><td>Direct but with empathy</td></tr>
+      <tr><td>RCA/Closure</td><td>Brief summary is fine</td><td>Summary with lessons learned</td><td>Detailed formal report required</td><td>Concise report with action items</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout yellow fragment fade-up" style="margin-top:14px;">
+    <strong style="color:var(--accent-yellow);">Key Insight:</strong> AU/NZ values <strong>efficiency</strong>, Japan values <strong>precision</strong>, Korea values <strong>speed</strong>, SEA values <strong>relationship</strong>. Don't use a one-size-fits-all template.
+  </div>
+</section>
+
+<!-- ==================== SLIDE 20: Q6 ==================== -->
+<section>
+  <div class="q-title">Q6: If preferred contact is phone but it's outside their business hours, should I switch to email?</div>
+  <div class="q-author">&mdash; KR DSC (TA: Man Woo)</div>
+  <div class="accent-line green"></div>
+
+  <div class="callout yellow" style="margin-top:10px; margin-bottom:16px;">
+    <strong style="color:var(--accent-yellow);">General Rule:</strong> If it's outside their business hours &rarr; default to email, not phone.<br>
+    <span style="font-size:0.9em;">Even if the customer selected "phone" as preferred contact, that means phone <em>during their business hours</em>.</span>
+  </div>
+
+  <div class="grid-3 tight-grid">
+    <div class="card green scenario-card fragment fade-up">
+      <div class="scenario-icon" style="color:var(--accent-green);">&#9742;</div>
+      <h3 style="color:var(--accent-green); font-size:0.88em;">During Business Hours</h3>
+      <p><strong>Call first</strong> (respect their preference)</p>
+      <p style="font-size:0.72em; margin-top:6px;">This is what they asked for</p>
+    </div>
+    <div class="card blue scenario-card fragment fade-up">
+      <div class="scenario-icon" style="color:var(--accent-blue);">&#9993;</div>
+      <h3 style="color:var(--accent-blue); font-size:0.88em;">Outside Business Hours</h3>
+      <p><strong>Send email</strong> with findings + next steps</p>
+      <p style="font-size:0.72em; margin-top:6px;">"I've made progress on your case. Happy to discuss on a call during your business hours."</p>
+    </div>
+    <div class="card orange scenario-card fragment fade-up">
+      <div class="scenario-icon" style="color:var(--accent-orange);">&#9888;</div>
+      <h3 style="color:var(--accent-orange); font-size:0.88em;">Urgent After-Hours</h3>
+      <p><strong>Email flagged urgent</strong> + call attempt</p>
+      <p style="font-size:0.72em; margin-top:6px;">Sev A / Critical with 24/7 support &mdash; phone OK anytime. If no answer, leave voicemail and note in case.</p>
+    </div>
+  </div>
+
+  <p style="text-align:center; color:var(--text-dim); font-size:0.7em; margin-top:14px;">Always log your contact attempts in the case notes for visibility.</p>
+</section>
+
+<!-- ==================== SLIDE 21: THANK YOU ==================== -->
+<section class="thankyou-slide">
+  <div class="accent-line wide blue center"></div>
+  <h1>Thank You!</h1>
+  <p style="color:var(--text-gray); font-size:0.9em; line-height:1.7; max-width:700px; text-align:center; margin-top:16px;">
+    Remember: Clear expectation-setting and proactive updates<br>
+    are the keys to earning customer trust across all regions.
+  </p>
+  <div class="accent-line wide orange center" style="margin-top:28px;"></div>
+</section>
+
+</div><!-- .slides -->
+</div><!-- .reveal -->
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: 'c/t',
+  width: 1280,
+  height: 720,
+  margin: 0.04,
+  transition: 'slide',
+  transitionSpeed: 'default',
+  backgroundTransition: 'fade',
+  center: false,
+  controls: true,
+  controlsLayout: 'bottom-right',
+  progress: true,
+  loop: false,
+  keyboard: true,
+  overview: true,
+  touch: true,
+});
+</script>
+</body>
+</html>
