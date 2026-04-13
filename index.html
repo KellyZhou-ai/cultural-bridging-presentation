@@ -474,82 +474,140 @@
 
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:12px; align-items:start;">
     <!-- MAP -->
-    <div style="position:relative; width:100%; height:340px;">
-      <svg viewBox="0 0 600 380" style="width:100%; height:100%;" xmlns="http://www.w3.org/2000/svg">
-        <!-- Background grid dots -->
-        <g opacity="0.15">
-          <circle cx="320" cy="20" r="2" fill="#a0a8c8"/><circle cx="380" cy="15" r="2" fill="#a0a8c8"/>
-          <circle cx="440" cy="25" r="2" fill="#a0a8c8"/><circle cx="500" cy="18" r="2" fill="#a0a8c8"/>
-          <circle cx="540" cy="40" r="2" fill="#a0a8c8"/><circle cx="560" cy="70" r="2" fill="#a0a8c8"/>
-          <circle cx="270" cy="50" r="2" fill="#a0a8c8"/><circle cx="580" cy="110" r="2" fill="#a0a8c8"/>
-          <!-- connection lines -->
-          <line x1="320" y1="20" x2="380" y2="15" stroke="#a0a8c8" stroke-width="0.5"/>
-          <line x1="380" y1="15" x2="440" y2="25" stroke="#a0a8c8" stroke-width="0.5"/>
-          <line x1="440" y1="25" x2="500" y2="18" stroke="#a0a8c8" stroke-width="0.5"/>
-          <line x1="500" y1="18" x2="540" y2="40" stroke="#a0a8c8" stroke-width="0.5"/>
-          <line x1="540" y1="40" x2="560" y2="70" stroke="#a0a8c8" stroke-width="0.5"/>
-          <line x1="320" y1="20" x2="270" y2="50" stroke="#a0a8c8" stroke-width="0.5"/>
-          <line x1="560" y1="70" x2="580" y2="110" stroke="#a0a8c8" stroke-width="0.5"/>
-        </g>
-
-        <!-- Asia continent simplified -->
-        <path d="M280,30 L310,25 L340,20 L360,22 L380,18 L400,20 L420,15 L440,18 L460,22 L480,20 L500,25 L520,35 L530,50 L540,65 L535,80 L540,95 L530,105 L520,100 L510,105 L500,100 L495,110 L485,115 L475,110 L470,120 L460,125 L450,120 L440,125 L430,130 L420,135 L410,130 L400,135 L390,140 L380,145 L370,150 L360,155 L350,160 L340,165 L330,170 L320,165 L310,170 L300,175 L290,170 L280,165 L270,160 L260,155 L250,150 L245,140 L250,130 L255,120 L260,110 L258,100 L255,90 L260,80 L265,70 L270,60 L275,50 L280,40 Z"
-              fill="url(#mapGradient)" opacity="0.85" stroke="rgba(78,197,209,0.2)" stroke-width="0.5"/>
-        <!-- Russia/North Asia -->
-        <path d="M280,30 L290,20 L310,15 L340,10 L370,8 L400,10 L430,8 L460,12 L490,10 L510,15 L530,25 L540,35 L530,50 L520,35 L500,25 L480,20 L460,22 L440,18 L420,15 L400,20 L380,18 L360,22 L340,20 L310,25 L280,30 Z"
-              fill="url(#mapGradient)" opacity="0.6" stroke="rgba(78,197,209,0.15)" stroke-width="0.5"/>
-        <!-- India -->
-        <path d="M300,175 L310,170 L320,165 L330,170 L335,180 L340,195 L335,210 L325,220 L315,215 L305,205 L300,195 L298,185 Z"
-              fill="url(#mapGradient)" opacity="0.7" stroke="rgba(78,197,209,0.15)" stroke-width="0.5"/>
-        <!-- Middle East -->
-        <path d="M245,140 L260,135 L275,140 L280,150 L275,160 L265,155 L255,150 L248,145 Z"
-              fill="url(#mapGradient)" opacity="0.55" stroke="rgba(78,197,209,0.1)" stroke-width="0.5"/>
-
-        <!-- Japan + Korea (highlighted) -->
-        <path d="M490,80 L498,72 L505,78 L502,88 L495,92 L488,86 Z"
-              fill="#4ec5d1" opacity="0.6" stroke="#4ec5d1" stroke-width="1"/>
-        <path d="M505,60 L512,52 L520,55 L525,65 L522,78 L515,85 L508,80 L505,70 Z"
-              fill="#4ec5d1" opacity="0.5" stroke="#4ec5d1" stroke-width="1"/>
-        <!-- JP/KR label -->
-        <text x="530" y="72" fill="#4ec5d1" font-size="11" font-family="Inter,sans-serif" font-weight="600">JP/KR</text>
-
-        <!-- SEA region highlighted -->
-        <rect x="370" y="155" width="130" height="95" rx="6" fill="none" stroke="var(--accent-purple)" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
-        <path d="M390,170 L410,165 L430,168 L445,175 L455,185 L460,200 L455,215 L445,225 L430,230 L415,228 L400,220 L390,210 L385,195 L388,180 Z"
-              fill="var(--accent-purple)" opacity="0.25" stroke="var(--accent-purple)" stroke-width="0.8"/>
-        <!-- Indonesia archipelago -->
-        <path d="M400,225 L415,228 L430,230 L445,232 L460,228 L475,230 L480,235 L472,240 L455,238 L438,240 L420,238 L405,235 L398,230 Z"
-              fill="var(--accent-purple)" opacity="0.2" stroke="var(--accent-purple)" stroke-width="0.6"/>
-        <!-- Philippines -->
-        <ellipse cx="470" cy="178" rx="10" ry="18" fill="var(--accent-purple)" opacity="0.2" stroke="var(--accent-purple)" stroke-width="0.6"/>
-
-        <!-- ANZ region highlighted -->
-        <rect x="400" y="270" width="140" height="100" rx="6" fill="none" stroke="var(--accent-orange)" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
-        <!-- Australia -->
-        <path d="M415,290 L440,280 L470,278 L500,282 L520,295 L525,315 L518,335 L500,345 L475,348 L450,342 L430,330 L418,315 L412,300 Z"
-              fill="var(--accent-orange)" opacity="0.2" stroke="var(--accent-orange)" stroke-width="0.8"/>
-        <!-- New Zealand -->
-        <path d="M540,320 L545,310 L548,318 L546,330 L542,338 L538,332 Z"
-              fill="var(--accent-orange)" opacity="0.25" stroke="var(--accent-orange)" stroke-width="0.8"/>
-
-        <!-- Connector lines from labels -->
-        <!-- SEA Zone line -->
-        <circle cx="110" cy="145" r="5" fill="var(--accent-purple)"/>
-        <path d="M115,145 L200,145 L375,180" stroke="var(--accent-purple)" stroke-width="1.5" fill="none" opacity="0.7"/>
-        <text x="15" y="150" fill="var(--accent-purple)" font-size="14" font-family="Inter,sans-serif" font-weight="700">SEA Zone</text>
-
-        <!-- ANZ Zone line -->
-        <circle cx="110" cy="295" r="5" fill="var(--accent-orange)"/>
-        <path d="M115,295 L200,295 L405,310" stroke="var(--accent-orange)" stroke-width="1.5" fill="none" opacity="0.7"/>
-        <text x="15" y="300" fill="var(--accent-orange)" font-size="14" font-family="Inter,sans-serif" font-weight="700">ANZ Zone</text>
-
-        <!-- Gradients -->
+    <div style="position:relative; width:100%; height:350px;">
+      <svg viewBox="0 0 720 400" style="width:100%; height:100%;" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#1e2749"/>
-            <stop offset="100%" stop-color="#0f1023"/>
+          <linearGradient id="mapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2a3562"/><stop offset="100%" stop-color="#1a2040"/>
+          </linearGradient>
+          <linearGradient id="mapGradL" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2e3d6e"/><stop offset="100%" stop-color="#1e2749"/>
           </linearGradient>
         </defs>
+
+        <!-- Decorative grid dots -->
+        <g opacity="0.1">
+          <circle cx="60" cy="28" r="1.5" fill="#a0a8c8"/><circle cx="180" cy="16" r="1.5" fill="#a0a8c8"/>
+          <circle cx="360" cy="10" r="1.5" fill="#a0a8c8"/><circle cx="540" cy="18" r="1.5" fill="#a0a8c8"/>
+          <circle cx="680" cy="25" r="1.5" fill="#a0a8c8"/>
+          <line x1="60" y1="28" x2="180" y2="16" stroke="#a0a8c8" stroke-width="0.4"/>
+          <line x1="180" y1="16" x2="360" y2="10" stroke="#a0a8c8" stroke-width="0.4"/>
+          <line x1="360" y1="10" x2="540" y2="18" stroke="#a0a8c8" stroke-width="0.4"/>
+          <line x1="540" y1="18" x2="680" y2="25" stroke="#a0a8c8" stroke-width="0.4"/>
+        </g>
+
+        <!-- ===== NORTH AMERICA ===== -->
+        <!-- Canada + USA -->
+        <path d="M30,58 L42,44 L58,36 L78,30 L98,28 L118,32 L136,38 L148,34 L160,40 L168,52 L164,62 L152,68 L148,78 L156,90 L160,102 L152,115 L142,125 L136,132 L142,142 L148,155 L152,168 L148,178 L138,182 L128,178 L120,170 L114,160 L106,155 L96,158 L88,165 L82,172 L76,168 L74,158 L78,148 L76,138 L68,130 L62,138 L56,145 L50,140 L46,130 L40,120 L36,110 L30,100 L26,88 L24,74 L26,64 Z"
+              fill="url(#mapGrad)" stroke="rgba(78,197,209,0.15)" stroke-width="0.6" opacity="0.65"/>
+        <!-- Greenland -->
+        <path d="M142,18 L160,12 L178,16 L186,24 L182,36 L172,42 L160,40 L150,32 L142,24 Z"
+              fill="url(#mapGrad)" stroke="rgba(78,197,209,0.1)" stroke-width="0.5" opacity="0.45"/>
+        <!-- Alaska -->
+        <path d="M16,50 L26,42 L36,40 L40,48 L36,55 L26,58 L18,54 Z"
+              fill="url(#mapGrad)" stroke="rgba(78,197,209,0.1)" stroke-width="0.5" opacity="0.5"/>
+
+        <!-- ===== CENTRAL AMERICA ===== -->
+        <path d="M82,172 L90,178 L100,184 L108,190 L112,198 L108,204 L100,200 L92,194 L86,186 L80,178 Z"
+              fill="url(#mapGrad)" stroke="rgba(78,197,209,0.1)" stroke-width="0.5" opacity="0.55"/>
+
+        <!-- ===== SOUTH AMERICA ===== -->
+        <path d="M112,204 L122,200 L134,206 L144,218 L152,236 L156,258 L154,280 L148,300 L140,318 L130,332 L120,345 L112,354 L108,358 L104,348 L102,330 L100,312 L97,294 L94,276 L92,258 L90,240 L92,224 L98,212 L105,206 Z"
+              fill="url(#mapGrad)" stroke="rgba(78,197,209,0.15)" stroke-width="0.6" opacity="0.65"/>
+
+        <!-- ===== EUROPE ===== -->
+        <path d="M305,42 L320,36 L338,34 L354,38 L366,46 L372,56 L376,68 L374,78 L366,84 L356,88 L348,94 L342,102 L334,106 L324,104 L316,97 L308,90 L302,82 L296,74 L294,64 L296,52 Z"
+              fill="url(#mapGradL)" stroke="rgba(78,197,209,0.18)" stroke-width="0.6" opacity="0.7"/>
+        <!-- Scandinavia -->
+        <path d="M330,18 L342,15 L352,20 L355,30 L352,38 L344,36 L336,32 L330,24 Z"
+              fill="url(#mapGrad)" stroke="rgba(78,197,209,0.12)" stroke-width="0.5" opacity="0.55"/>
+        <!-- UK & Ireland -->
+        <path d="M286,52 L294,48 L298,54 L296,62 L290,64 L284,58 Z"
+              fill="url(#mapGrad)" stroke="rgba(78,197,209,0.12)" stroke-width="0.5" opacity="0.55"/>
+        <!-- Iceland -->
+        <path d="M260,28 L270,24 L278,28 L274,34 L264,32 Z"
+              fill="url(#mapGrad)" stroke="rgba(78,197,209,0.1)" stroke-width="0.4" opacity="0.4"/>
+
+        <!-- ===== AFRICA ===== -->
+        <path d="M316,126 L332,120 L352,118 L368,124 L380,136 L388,152 L392,172 L390,194 L386,214 L378,232 L368,248 L356,260 L342,268 L328,272 L318,264 L310,250 L305,234 L302,216 L300,198 L298,180 L300,162 L304,146 L308,136 Z"
+              fill="url(#mapGrad)" stroke="rgba(78,197,209,0.15)" stroke-width="0.6" opacity="0.65"/>
+        <!-- Madagascar -->
+        <path d="M396,232 L400,224 L404,232 L402,244 L397,248 Z"
+              fill="url(#mapGrad)" stroke="rgba(78,197,209,0.1)" stroke-width="0.4" opacity="0.45"/>
+
+        <!-- ===== MIDDLE EAST ===== -->
+        <path d="M376,88 L392,84 L406,88 L414,98 L418,110 L414,120 L404,126 L394,122 L384,115 L378,105 L376,96 Z"
+              fill="url(#mapGrad)" stroke="rgba(78,197,209,0.12)" stroke-width="0.5" opacity="0.6"/>
+
+        <!-- ===== CENTRAL / NORTH ASIA (Russia) ===== -->
+        <path d="M372,56 L392,46 L418,40 L448,36 L480,34 L515,36 L548,40 L578,38 L605,42 L628,48 L642,56 L646,66 L640,72 L625,68 L605,64 L580,62 L555,65 L530,62 L505,60 L480,62 L456,66 L432,70 L412,76 L396,80 L384,84 L376,78 L374,68 Z"
+              fill="url(#mapGrad)" stroke="rgba(78,197,209,0.12)" stroke-width="0.5" opacity="0.5"/>
+
+        <!-- ===== INDIA ===== -->
+        <path d="M452,118 L466,112 L478,116 L486,128 L488,144 L484,160 L476,172 L466,178 L456,174 L448,164 L443,150 L443,136 L446,126 Z"
+              fill="url(#mapGrad)" stroke="rgba(78,197,209,0.14)" stroke-width="0.5" opacity="0.6"/>
+        <!-- Sri Lanka -->
+        <ellipse cx="476" cy="185" rx="5" ry="7" fill="url(#mapGrad)" stroke="rgba(78,197,209,0.1)" stroke-width="0.4" opacity="0.45"/>
+
+        <!-- ===== CHINA / EAST ASIA ===== -->
+        <path d="M505,62 L525,66 L545,70 L564,78 L580,86 L594,98 L600,112 L596,124 L586,130 L574,132 L560,128 L548,122 L536,116 L524,110 L514,102 L506,92 L500,82 L502,72 Z"
+              fill="url(#mapGradL)" stroke="rgba(78,197,209,0.18)" stroke-width="0.6" opacity="0.65"/>
+
+        <!-- ===== JAPAN + KOREA (highlighted cyan) ===== -->
+        <!-- Korea peninsula -->
+        <path d="M604,88 L612,80 L618,86 L616,98 L610,105 L603,98 Z"
+              fill="#4ec5d1" opacity="0.55" stroke="#4ec5d1" stroke-width="1.2"/>
+        <!-- Japan main island -->
+        <path d="M624,74 L632,66 L638,72 L642,86 L638,98 L630,106 L624,100 L620,88 Z"
+              fill="#4ec5d1" opacity="0.5" stroke="#4ec5d1" stroke-width="1.2"/>
+        <!-- Japan south -->
+        <path d="M636,102 L641,97 L646,104 L643,113 L638,110 Z"
+              fill="#4ec5d1" opacity="0.45" stroke="#4ec5d1" stroke-width="1"/>
+        <!-- JP/KR label -->
+        <text x="650" y="90" fill="#4ec5d1" font-size="11" font-family="Inter,sans-serif" font-weight="700">JP/KR</text>
+
+        <!-- ===== SEA REGION (purple highlight) ===== -->
+        <rect x="506" y="138" width="135" height="95" rx="6" fill="none" stroke="#a87cf7" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.65"/>
+        <!-- Mainland SEA -->
+        <path d="M526,140 L542,136 L556,142 L566,152 L572,168 L568,180 L558,188 L544,190 L532,184 L524,172 L520,158 L522,148 Z"
+              fill="#a87cf7" opacity="0.25" stroke="#a87cf7" stroke-width="0.8"/>
+        <!-- Malaysia & Indonesia -->
+        <path d="M536,196 L552,194 L568,198 L584,202 L598,208 L608,216 L602,222 L588,220 L572,218 L556,214 L542,208 L534,202 Z"
+              fill="#a87cf7" opacity="0.2" stroke="#a87cf7" stroke-width="0.7"/>
+        <!-- Borneo -->
+        <path d="M582,178 L592,174 L600,180 L604,192 L598,198 L588,196 L582,188 Z"
+              fill="#a87cf7" opacity="0.2" stroke="#a87cf7" stroke-width="0.6"/>
+        <!-- Philippines -->
+        <path d="M606,148 L612,142 L618,148 L620,162 L616,172 L610,175 L604,168 L602,158 Z"
+              fill="#a87cf7" opacity="0.22" stroke="#a87cf7" stroke-width="0.7"/>
+        <!-- Singapore dot -->
+        <circle cx="564" cy="206" r="3" fill="#a87cf7" opacity="0.5"/>
+
+        <!-- ===== ANZ REGION (orange highlight) ===== -->
+        <rect x="565" y="255" width="148" height="115" rx="6" fill="none" stroke="#ff8c42" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.65"/>
+        <!-- Australia -->
+        <path d="M580,278 L608,266 L638,264 L668,270 L688,284 L696,306 L690,328 L676,342 L654,352 L628,354 L604,348 L586,336 L576,318 L572,298 L574,286 Z"
+              fill="#ff8c42" opacity="0.2" stroke="#ff8c42" stroke-width="0.9"/>
+        <!-- Tasmania -->
+        <path d="M664,354 L670,350 L676,356 L670,362 L664,360 Z"
+              fill="#ff8c42" opacity="0.2" stroke="#ff8c42" stroke-width="0.6"/>
+        <!-- New Zealand North Island -->
+        <path d="M706,316 L712,306 L716,315 L714,328 L710,336 L706,330 Z"
+              fill="#ff8c42" opacity="0.28" stroke="#ff8c42" stroke-width="0.9"/>
+        <!-- New Zealand South Island -->
+        <path d="M708,340 L712,334 L715,342 L712,352 L707,348 Z"
+              fill="#ff8c42" opacity="0.25" stroke="#ff8c42" stroke-width="0.8"/>
+
+        <!-- ===== CONNECTOR LINES & LABELS ===== -->
+        <!-- SEA Zone -->
+        <circle cx="34" cy="172" r="5" fill="#a87cf7"/>
+        <path d="M39,172 L130,172 L510,172" stroke="#a87cf7" stroke-width="1.5" fill="none" opacity="0.6"/>
+        <text x="48" y="168" fill="#a87cf7" font-size="13" font-family="Inter,sans-serif" font-weight="700">SEA Zone</text>
+
+        <!-- ANZ Zone -->
+        <circle cx="34" cy="315" r="5" fill="#ff8c42"/>
+        <path d="M39,315 L130,315 L570,315" stroke="#ff8c42" stroke-width="1.5" fill="none" opacity="0.6"/>
+        <text x="48" y="310" fill="#ff8c42" font-size="13" font-family="Inter,sans-serif" font-weight="700">ANZ Zone</text>
       </svg>
     </div>
 
