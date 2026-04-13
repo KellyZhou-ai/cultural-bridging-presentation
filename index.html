@@ -471,14 +471,98 @@
 <section>
   <h2>Why Pick Up ANZ &amp; SEA Among GE Countries</h2>
   <div class="accent-line blue"></div>
-  <div class="grid-2" style="margin-top:32px;">
-    <div class="card left-accent blue fragment fade-up" style="padding:28px 32px;">
-      <h3 style="color:var(--accent-blue); font-size:1.05em;">Time Zone Overlap</h3>
-      <p style="color:var(--text-gray); font-size:0.88em; line-height:1.7; margin-top:10px;">We are in closer time zones with ANZ and SEA countries, which means we have greater overlap in working hours and can collaborate more effectively in real time.</p>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:12px; align-items:start;">
+    <!-- MAP -->
+    <div style="position:relative; width:100%; height:340px;">
+      <svg viewBox="0 0 600 380" style="width:100%; height:100%;" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background grid dots -->
+        <g opacity="0.15">
+          <circle cx="320" cy="20" r="2" fill="#a0a8c8"/><circle cx="380" cy="15" r="2" fill="#a0a8c8"/>
+          <circle cx="440" cy="25" r="2" fill="#a0a8c8"/><circle cx="500" cy="18" r="2" fill="#a0a8c8"/>
+          <circle cx="540" cy="40" r="2" fill="#a0a8c8"/><circle cx="560" cy="70" r="2" fill="#a0a8c8"/>
+          <circle cx="270" cy="50" r="2" fill="#a0a8c8"/><circle cx="580" cy="110" r="2" fill="#a0a8c8"/>
+          <!-- connection lines -->
+          <line x1="320" y1="20" x2="380" y2="15" stroke="#a0a8c8" stroke-width="0.5"/>
+          <line x1="380" y1="15" x2="440" y2="25" stroke="#a0a8c8" stroke-width="0.5"/>
+          <line x1="440" y1="25" x2="500" y2="18" stroke="#a0a8c8" stroke-width="0.5"/>
+          <line x1="500" y1="18" x2="540" y2="40" stroke="#a0a8c8" stroke-width="0.5"/>
+          <line x1="540" y1="40" x2="560" y2="70" stroke="#a0a8c8" stroke-width="0.5"/>
+          <line x1="320" y1="20" x2="270" y2="50" stroke="#a0a8c8" stroke-width="0.5"/>
+          <line x1="560" y1="70" x2="580" y2="110" stroke="#a0a8c8" stroke-width="0.5"/>
+        </g>
+
+        <!-- Asia continent simplified -->
+        <path d="M280,30 L310,25 L340,20 L360,22 L380,18 L400,20 L420,15 L440,18 L460,22 L480,20 L500,25 L520,35 L530,50 L540,65 L535,80 L540,95 L530,105 L520,100 L510,105 L500,100 L495,110 L485,115 L475,110 L470,120 L460,125 L450,120 L440,125 L430,130 L420,135 L410,130 L400,135 L390,140 L380,145 L370,150 L360,155 L350,160 L340,165 L330,170 L320,165 L310,170 L300,175 L290,170 L280,165 L270,160 L260,155 L250,150 L245,140 L250,130 L255,120 L260,110 L258,100 L255,90 L260,80 L265,70 L270,60 L275,50 L280,40 Z"
+              fill="url(#mapGradient)" opacity="0.85" stroke="rgba(78,197,209,0.2)" stroke-width="0.5"/>
+        <!-- Russia/North Asia -->
+        <path d="M280,30 L290,20 L310,15 L340,10 L370,8 L400,10 L430,8 L460,12 L490,10 L510,15 L530,25 L540,35 L530,50 L520,35 L500,25 L480,20 L460,22 L440,18 L420,15 L400,20 L380,18 L360,22 L340,20 L310,25 L280,30 Z"
+              fill="url(#mapGradient)" opacity="0.6" stroke="rgba(78,197,209,0.15)" stroke-width="0.5"/>
+        <!-- India -->
+        <path d="M300,175 L310,170 L320,165 L330,170 L335,180 L340,195 L335,210 L325,220 L315,215 L305,205 L300,195 L298,185 Z"
+              fill="url(#mapGradient)" opacity="0.7" stroke="rgba(78,197,209,0.15)" stroke-width="0.5"/>
+        <!-- Middle East -->
+        <path d="M245,140 L260,135 L275,140 L280,150 L275,160 L265,155 L255,150 L248,145 Z"
+              fill="url(#mapGradient)" opacity="0.55" stroke="rgba(78,197,209,0.1)" stroke-width="0.5"/>
+
+        <!-- Japan + Korea (highlighted) -->
+        <path d="M490,80 L498,72 L505,78 L502,88 L495,92 L488,86 Z"
+              fill="#4ec5d1" opacity="0.6" stroke="#4ec5d1" stroke-width="1"/>
+        <path d="M505,60 L512,52 L520,55 L525,65 L522,78 L515,85 L508,80 L505,70 Z"
+              fill="#4ec5d1" opacity="0.5" stroke="#4ec5d1" stroke-width="1"/>
+        <!-- JP/KR label -->
+        <text x="530" y="72" fill="#4ec5d1" font-size="11" font-family="Inter,sans-serif" font-weight="600">JP/KR</text>
+
+        <!-- SEA region highlighted -->
+        <rect x="370" y="155" width="130" height="95" rx="6" fill="none" stroke="var(--accent-purple)" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
+        <path d="M390,170 L410,165 L430,168 L445,175 L455,185 L460,200 L455,215 L445,225 L430,230 L415,228 L400,220 L390,210 L385,195 L388,180 Z"
+              fill="var(--accent-purple)" opacity="0.25" stroke="var(--accent-purple)" stroke-width="0.8"/>
+        <!-- Indonesia archipelago -->
+        <path d="M400,225 L415,228 L430,230 L445,232 L460,228 L475,230 L480,235 L472,240 L455,238 L438,240 L420,238 L405,235 L398,230 Z"
+              fill="var(--accent-purple)" opacity="0.2" stroke="var(--accent-purple)" stroke-width="0.6"/>
+        <!-- Philippines -->
+        <ellipse cx="470" cy="178" rx="10" ry="18" fill="var(--accent-purple)" opacity="0.2" stroke="var(--accent-purple)" stroke-width="0.6"/>
+
+        <!-- ANZ region highlighted -->
+        <rect x="400" y="270" width="140" height="100" rx="6" fill="none" stroke="var(--accent-orange)" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
+        <!-- Australia -->
+        <path d="M415,290 L440,280 L470,278 L500,282 L520,295 L525,315 L518,335 L500,345 L475,348 L450,342 L430,330 L418,315 L412,300 Z"
+              fill="var(--accent-orange)" opacity="0.2" stroke="var(--accent-orange)" stroke-width="0.8"/>
+        <!-- New Zealand -->
+        <path d="M540,320 L545,310 L548,318 L546,330 L542,338 L538,332 Z"
+              fill="var(--accent-orange)" opacity="0.25" stroke="var(--accent-orange)" stroke-width="0.8"/>
+
+        <!-- Connector lines from labels -->
+        <!-- SEA Zone line -->
+        <circle cx="110" cy="145" r="5" fill="var(--accent-purple)"/>
+        <path d="M115,145 L200,145 L375,180" stroke="var(--accent-purple)" stroke-width="1.5" fill="none" opacity="0.7"/>
+        <text x="15" y="150" fill="var(--accent-purple)" font-size="14" font-family="Inter,sans-serif" font-weight="700">SEA Zone</text>
+
+        <!-- ANZ Zone line -->
+        <circle cx="110" cy="295" r="5" fill="var(--accent-orange)"/>
+        <path d="M115,295 L200,295 L405,310" stroke="var(--accent-orange)" stroke-width="1.5" fill="none" opacity="0.7"/>
+        <text x="15" y="300" fill="var(--accent-orange)" font-size="14" font-family="Inter,sans-serif" font-weight="700">ANZ Zone</text>
+
+        <!-- Gradients -->
+        <defs>
+          <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1e2749"/>
+            <stop offset="100%" stop-color="#0f1023"/>
+          </linearGradient>
+        </defs>
+      </svg>
     </div>
-    <div class="card left-accent green fragment fade-up" style="padding:28px 32px;">
-      <h3 style="color:var(--accent-green); font-size:1.05em;">Benefit When You Support US</h3>
-      <p style="color:var(--text-gray); font-size:0.88em; line-height:1.7; margin-top:10px;">ANZ customers are closer to US customers in terms of communication style and expectations &mdash; direct, outcome&#8209;focused, and ownership&#8209;driven &mdash; though ANZ places stronger emphasis on work&#8209;life boundaries.</p>
+
+    <!-- CARDS -->
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <div class="card left-accent blue fragment fade-up" style="padding:22px 26px;">
+        <h3 style="color:var(--accent-blue); font-size:1em;">Time Zone Overlap</h3>
+        <p style="color:var(--text-gray); font-size:0.82em; line-height:1.6; margin-top:8px;">We are in closer time zones with ANZ and SEA countries, which means we have greater overlap in working hours and can collaborate more effectively in real time.</p>
+      </div>
+      <div class="card left-accent green fragment fade-up" style="padding:22px 26px;">
+        <h3 style="color:var(--accent-green); font-size:1em;">Benefit When You Support US</h3>
+        <p style="color:var(--text-gray); font-size:0.82em; line-height:1.6; margin-top:8px;">ANZ customers are closer to US customers in terms of communication style and expectations &mdash; direct, outcome&#8209;focused, and ownership&#8209;driven &mdash; though ANZ places stronger emphasis on work&#8209;life boundaries.</p>
+      </div>
     </div>
   </div>
 </section>
